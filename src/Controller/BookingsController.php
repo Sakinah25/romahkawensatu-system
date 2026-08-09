@@ -581,7 +581,7 @@ class BookingsController extends AppController
             'categoryCode'            => $config['categoryCode'],
             'billName'                => $billName,
             'billDescription'         => $billDesc,
-            'billPriceSetting'        => '1',
+            'billPriceSetting'        => '2',
             'billPayorInfo'           => '1',
             'billAmount'              => $billPrice,
             'billReturnUrl'           => $returnUrl,
@@ -601,9 +601,7 @@ class BookingsController extends AppController
 
         try {
             $http = new \Cake\Http\Client();
-            $response = $http->post($baseUrl . '/index.php/api/createBill', $postData, [
-                'type' => 'form',
-            ]);
+            $response = $http->post($baseUrl . '/index.php/api/createBill', $postData);
 
             if ($response->isOk()) {
                 $body = $response->getJson();
@@ -616,10 +614,16 @@ class BookingsController extends AppController
                     $paymentsTable->save($paymentEntity);
 
                     return $baseUrl . '/' . $billCode;
+                } else {
+                    // Debug: response had no BillCode
+                    $this->log('ToyyibPay createBill response (no BillCode): ' . json_encode($body), 'error');
                 }
+            } else {
+                // Debug: response not OK
+                $this->log('ToyyibPay createBill HTTP ' . $response->getStatusCode() . ': ' . $response->getStringBody(), 'error');
             }
         } catch (\Exception $e) {
-            // Log error
+            $this->log('ToyyibPay createBill exception: ' . $e->getMessage(), 'error');
         }
 
         return null;
@@ -754,11 +758,10 @@ class BookingsController extends AppController
 
     private function getCallbackUrl(string $controller, string $action, mixed $param = null): string
     {
-        $base = \Cake\Routing\Router::fullBaseUrl();
-        $url = $base . '/' . $controller . '/' . $action;
+        $url = ['controller' => $controller, 'action' => $action, '_full' => true];
         if ($param !== null) {
-            $url .= '/' . $param;
+            $url[] = $param;
         }
-        return $url;
+        return \Cake\Routing\Router::url($url);
     }
 }

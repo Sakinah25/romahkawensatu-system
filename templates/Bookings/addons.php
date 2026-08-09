@@ -43,15 +43,7 @@ foreach ($saved as $s) {
     </div>
   </div>
 
-  <!-- ========== HERO HEADER ========== -->
-  <div class="addons-hero">
-    <div class="addons-hero-bg"></div>
-    <div class="addons-hero-content">
-      <span class="addons-badge">Optional Extras</span>
-      <h1>Enhance Your Experience</h1>
-      <p>Hand-picked add-ons to elevate your studio session. Select what speaks to you.</p>
-    </div>
-  </div>
+
 
   <?= $this->Form->create(null, ['url' => ['action' => 'saveAddons'], 'id' => 'addonsForm']) ?>
 
@@ -162,15 +154,43 @@ foreach ($saved as $s) {
       <div class="addons-empty">
         <div class="addons-empty-icon">✨</div>
         <h3>No Add-ons Available</h3>
-        <p>There are no add-ons right now. You can continue with your booking.</p>
+        <p>There are no add-ons right now. Use the skip option below to continue.</p>
       </div>
     <?php endif; ?>
   </div>
 
-  <!-- ========== STICKY SUMMARY BAR (hidden until selection) ========== -->
+  <!-- ========== SKIP SECTION (shown when nothing selected) ========== -->
+  <div class="skip-section" id="skipSection">
+    <div class="skip-section-divider">
+      <span class="skip-divider-line"></span>
+      <span class="skip-divider-icon">✦</span>
+      <span class="skip-divider-line"></span>
+    </div>
+    <div class="skip-section-body">
+      <div class="skip-body-icon">↷</div>
+      <h3 class="skip-heading">Not interested in add-ons?</h3>
+      <p class="skip-text">That's perfectly fine! You can skip this step and proceed straight to your details.</p>
+      <a href="<?= $this->Url->build(['action' => 'step3']) ?>" class="btn btn-skip-enhanced">
+        <span class="skip-btn-bg"></span>
+        <span class="skip-btn-content">
+          <span class="skip-btn-arrow">
+            <span class="arrow-main">→</span>
+            <span class="arrow-trail">→</span>
+          </span>
+          <span class="skip-btn-label">
+            <strong>Skip this step</strong>
+            <span class="skip-btn-sub">Continue to your details</span>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== STICKY SUMMARY BAR ========== -->
   <div class="addons-summary-bar" id="addonsSummary" style="display:none">
     <div class="summary-bar-inner">
-      <div class="summary-bar-left">
+      <!-- Selected state -->
+      <div class="summary-bar-left" id="summarySelected">
         <span class="summary-bar-count" id="selectedCount">0</span>
         <span class="summary-bar-label">add-on<span id="pluralSuffix">s</span> selected</span>
       </div>
@@ -183,9 +203,6 @@ foreach ($saved as $s) {
         <div class="summary-bar-bundle" id="summaryBundle" style="display:none">
           <span class="summary-bundle-label">Bundle discount:</span>
           <span class="summary-bundle-value" id="summaryBundleValue">-RM0</span>
-        </div>
-        <div class="summary-bar-note" id="summaryNote" style="display:none; margin-top: 8px; color: var(--muted-text); font-size: 0.95rem;">
-          No add-ons selected. You can continue to the next step.
         </div>
         <div class="summary-bar-actions">
           <a href="<?= $this->Url->build(['action' => 'step2']) ?>" class="btn btn-back btn-sm">← Back</a>
@@ -209,6 +226,7 @@ foreach ($saved as $s) {
   const summaryBar = document.getElementById('addonsSummary');
   const summaryBundle = document.getElementById('summaryBundle');
   const summaryBundleValue = document.getElementById('summaryBundleValue');
+  const skipSection = document.getElementById('skipSection');
 
   // Bundle data from server
   const bundles = <?= json_encode(array_map(fn($b) => [
@@ -265,16 +283,11 @@ foreach ($saved as $s) {
     totalEl.textContent = 'RM' + finalTotal.toLocaleString('en-MY', {minimumFractionDigits: 0});
     pluralEl.textContent = count === 1 ? '' : 's';
 
-    // Summary bar is always visible so users can continue without add-ons
-    summaryBar.style.display = 'block';
-
-    // Show a note when no add-ons are selected
-    const summaryNote = document.getElementById('summaryNote');
-    if (count === 0) {
-      summaryNote.style.display = 'block';
-    } else {
-      summaryNote.style.display = 'none';
-    }
+    // Toggle skip section vs sticky summary bar
+    const rawCount = document.querySelectorAll('.addon-card input[type="checkbox"]:checked').length;
+    const hasSelection = rawCount > 0;
+    skipSection.style.display = hasSelection ? 'none' : '';
+    summaryBar.style.display = hasSelection ? 'block' : 'none';
 
     // Bundle discount display
     if (bundleDiscount > 0) {

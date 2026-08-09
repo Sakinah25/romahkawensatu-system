@@ -11,7 +11,7 @@ function navClass($ctrl, $name) { return $ctrl === $name ? 'nav-link active' : '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin · romahkawensatu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <?= $this->Html->css('admin') ?>
 </head>
 <body>

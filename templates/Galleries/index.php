@@ -29,9 +29,9 @@
   background: rgba(201,169,110,.08);
 }
 .filter-pill.active {
-  background: var(--gold);
+  background: var(--teal, #1a7a7a);
   color: #fff;
-  border-color: var(--gold);
+  border-color: var(--teal, #1a7a7a);
 }
 
 /* ── Gallery Grid ── */
@@ -97,7 +97,7 @@
   transform: translateY(0);
 }
 .gallery-item .overlay .caption {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 17px;
   font-weight: 600;
   color: #fff;
@@ -125,9 +125,8 @@
   <!-- Gallery Grid -->
   <div class="gallery-grid" id="galleryGrid">
     <?php foreach ($galleries as $g): ?>
-      <?php $imageSrc = $g->image_path ? $this->Url->build('/' . $g->image_path) : $this->Url->build('/img/gallery/placeholder.svg'); ?>
       <div class="gallery-item" data-studio="<?= $g->studio_id ?>">
-        <img src="<?= $imageSrc ?>" alt="<?= h($g->caption ?: $g->studio->studio_name ?? '') ?>" loading="lazy" onerror="this.onerror=null; this.src='<?= $this->Url->build('/img/gallery/placeholder.svg') ?>';">
+        <img src="<?= $this->Url->build('/' . $g->image_path) ?>" alt="<?= h($g->caption ?: $g->studio->studio_name ?? '') ?>" loading="lazy" onerror="this.style.display='none'">
         <div class="overlay">
           <span class="label"><?= h($g->studio->studio_name ?? '') ?></span>
           <?php if ($g->caption): ?>

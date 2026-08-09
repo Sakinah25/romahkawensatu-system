@@ -247,9 +247,8 @@ $hasGalleries = false;
                 margin-top:24px;
             "
         >
-            <div>
+            <div class="paging">
                 <?= $this->Paginator->prev('← Previous') ?>
-                <?= $this->Paginator->numbers() ?>
                 <?= $this->Paginator->next('Next →') ?>
             </div>
 

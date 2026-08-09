@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>romahkawensatu<?= $this->fetch('title') ? ' · ' . $this->fetch('title') : '' ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <?= $this->Html->css('app') ?>
 </head>
 <body>
@@ -44,9 +44,8 @@
       <div class="brand-name">romahkawensatu</div>
       <div class="tagline">Premium studio rental spaces for your creative projects. Capture your vision in our uniquely themed studios.</div>
       <div class="social-row">
-        <a href="#" class="social-icon" title="Google">G</a>
-        <a href="#" class="social-icon" title="Facebook">f</a>
-        <a href="#" class="social-icon" title="TikTok">tt</a>
+        <a href="mailto:hello@romahkawensatu.my" class="social-icon" title="Email">@</a>
+        <a href="https://instagram.com/romahkawinsatu" target="_blank" class="social-icon" title="Instagram">ig</a>
       </div>
     </div>
 

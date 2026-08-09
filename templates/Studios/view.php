@@ -17,7 +17,7 @@ $this->assign('title', $studio->studio_name);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #a8894e;

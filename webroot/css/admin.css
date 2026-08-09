@@ -4,22 +4,23 @@
    ══════════════════════════════════════════════════════════ */
 
 :root {
-  --ivory:       #f7f3ea;
-  --cream:       #f0ede6;
+  --ivory:       #f5f0e8;
+  --cream:       #ede6d8;
   --card-bg:     #fcf9f2;
-  --gold:        #c9a96e;
-  --gold-light:  #e4d3ac;
-  --gold-dark:   #a8894e;
+  --gold:        #b8860b;
+  --gold-light:  #d4a843;
+  --gold-dark:   #8b6508;
+  --teal:        #1a7a7a;
+  --teal-light:  #4a9e9e;
   --charcoal:    #1e1d1b;
-  --navy:        #2c2a28;
-  --muted-text:  #8f8672;
-  --line:        #e3ddd0;
-  --line-gold:   #d4c5a8;
-  --good:        #5a8a6a;
+  --navy:        #1a2a3a;
+  --muted-text:  #7a7265;
+  --line:        #d4c5a8;
+  --good:        #2d7d4a;
   --bad:         #b84a4a;
-  --pending:     #b8934a;
-  --shadow:      0 2px 16px rgba(201,169,110,.08);
-  --shadow-hover:0 6px 28px rgba(201,169,110,.15);
+  --pending:     #c4903a;
+  --shadow:      0 2px 16px rgba(184,134,11,.08);
+  --shadow-hover:0 6px 28px rgba(184,134,11,.15);
   --radius:      12px;
   --radius-sm:   8px;
 }
@@ -27,7 +28,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: "Jost", system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   font-weight: 400;
   background: var(--ivory);
   color: var(--charcoal);
@@ -36,7 +37,7 @@ body {
 }
 
 .mono { font-family: "Space Mono", monospace; }
-.serif { font-family: "Cormorant Garamond", serif; }
+.serif { font-family: "Playfair Display", serif; }
 
 a { color: inherit; }
 
@@ -84,7 +85,7 @@ header.site {
 .logo-slot img { width: 100%; height: 100%; object-fit: cover; }
 .logo-slot span { font: 8px "Space Mono", monospace; letter-spacing: .12em; color: var(--gold-dark); }
 .brand-name {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: -.01em;
@@ -130,7 +131,7 @@ header.site {
 .admin-nav .nav-link {
   padding: 13px 16px;
   text-decoration: none;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 13px;
   letter-spacing: .03em;
@@ -157,7 +158,7 @@ header.site {
   color: var(--muted-text);
 }
 h1.h {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: clamp(30px, 4vw, 42px);
   letter-spacing: -.02em;
@@ -210,7 +211,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
   transform: translateY(-2px);
 }
 .tile .v {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 28px;
   font-weight: 700;
   color: var(--charcoal);
@@ -239,7 +240,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 13px;
   padding: 9px 16px;
@@ -247,24 +248,24 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
   transition: all .2s;
 }
 
-/* Primary — gold accent */
+/* Primary — teal accent */
 .btn-primary {
-  background: var(--gold);
+  background: var(--teal);
   color: #fff;
 }
 .btn-primary:hover {
-  background: var(--gold-dark);
+  background: #146666;
 }
 
 /* Secondary — outline */
 .btn-secondary {
   background: transparent;
-  color: var(--gold-dark);
-  border: 1px solid #d4c5a8;
+  color: var(--teal);
+  border: 1px solid var(--teal);
 }
 .btn-secondary:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--teal);
+  border-color: var(--teal);
   color: #fff;
 }
 
@@ -290,7 +291,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
   gap: 5px;
   padding: 8px 14px;
   border-radius: 20px;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 12px;
   text-decoration: none;
@@ -302,8 +303,8 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
 .action-pill:hover,
 .action-pill.active {
   color: #fff;
-  border-color: var(--gold);
-  background: var(--gold);
+  border-color: var(--teal);
+  background: var(--teal);
 }
 .action-pill.active {
   font-weight: 600;
@@ -320,7 +321,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
 .period-tab {
   padding: 5px 14px;
   border-radius: 6px;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-decoration: none;
@@ -353,7 +354,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
 .filter-select {
   appearance: none;
   -webkit-appearance: none;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   padding: 7px 32px 7px 12px;
   background: var(--card-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238b8579' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center;
@@ -367,7 +368,7 @@ h1.h em { font-style: italic; color: var(--gold); font-weight: 400; }
 
 /* Custom date input */
 .filter-date {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   padding: 7px 12px;
   border: 1px solid var(--line);
@@ -447,14 +448,25 @@ tr:hover td { background: rgba(201,169,110,.06); }
   font-size: 12px;
 }
 .paging a, .paging span {
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   text-decoration: none;
   color: var(--muted-text);
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
+  border: 1px solid transparent;
+  transition: all .2s;
 }
-.paging a:hover { background: var(--cream); color: var(--charcoal); }
-.paging .current { background: var(--gold); color: #fff; font-weight: 600; }
+.paging a:hover {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+.paging .current {
+  background: var(--teal);
+  color: #fff;
+  font-weight: 600;
+  border-color: var(--teal);
+}
 
 /* ── SVG Chart ───────────────────────────────────────────── */
 .chart-container {
@@ -525,7 +537,7 @@ footer .legal-links a:hover {
 .flash-pop.success .ic { background: #eef5f0; color: var(--good); }
 .flash-pop.error .ic { background: #f8ecec; color: var(--bad); }
 .flash-pop h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -553,7 +565,7 @@ footer .legal-links a:hover {
 }
 .login-card input {
   width: 100%;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   background: var(--ivory);
   border: 1px solid var(--line);
@@ -566,7 +578,7 @@ footer .legal-links a:hover {
 
 /* ── Generic inputs ──────────────────────────────────────── */
 input, select, textarea {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 label {
@@ -595,7 +607,7 @@ label {
 .pkg-img { aspect-ratio: 4/3; background: var(--cream); position: relative; }
 .pkg-img img { width:100%; height:100%; object-fit: cover; }
 .pkg-body { padding: 16px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
-.pkg-name { font-family: "Cormorant Garamond", serif; font-size: 20px; font-weight: 700; }
+.pkg-name { font-family: "Playfair Display", serif; font-size: 20px; font-weight: 700; }
 .pkg-theme { font-size: 13px; color: var(--muted-text); flex: 1; }
 .pkg-rate { font: 700 14px "Space Mono", monospace; }
 .actions a, .actions button {
@@ -710,7 +722,7 @@ textarea:focus { outline: none; border-color: var(--gold); }
 
 /* Large serif value */
 .stat-card .v {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 34px;
   font-weight: 700;
   color: var(--charcoal);
@@ -815,7 +827,7 @@ textarea:focus { outline: none; border-color: var(--gold); }
   gap: 4px;
   padding: 5px 14px;
   border-radius: 20px;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-decoration: none;
@@ -848,7 +860,7 @@ textarea:focus { outline: none; border-color: var(--gold); }
 }
 .command-bar input {
   width: 100%;
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   padding: 10px 14px 10px 36px;
   background: var(--card-bg);
@@ -890,7 +902,7 @@ textarea:focus { outline: none; border-color: var(--gold); }
 }
 .studio-mini:hover { border-color: var(--gold-light); }
 .studio-mini .name {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: var(--charcoal);

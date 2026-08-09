@@ -20,7 +20,7 @@ $this->assign('title', 'About Us');
   margin-bottom: 12px;
 }
 .about-hero h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 700;
   letter-spacing: -.02em;
@@ -33,7 +33,7 @@ $this->assign('title', 'About Us');
   font-weight: 400;
 }
 .about-hero p {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.7;
   color: var(--muted-text);
@@ -69,14 +69,14 @@ $this->assign('title', 'About Us');
   margin-bottom: 12px;
 }
 .about-card h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 20px;
   font-weight: 600;
   color: var(--charcoal);
   margin-bottom: 8px;
 }
 .about-card p {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: var(--muted-text);
@@ -85,7 +85,7 @@ $this->assign('title', 'About Us');
   margin-top: 16px;
 }
 .about-studios h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 26px;
   font-weight: 700;
   text-align: center;
@@ -104,7 +104,7 @@ $this->assign('title', 'About Us');
   justify-content: center;
 }
 .studio-tag {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   padding: 8px 18px;
   border-radius: 20px;
@@ -129,7 +129,7 @@ $this->assign('title', 'About Us');
   box-shadow: var(--shadow);
 }
 .about-contact h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Playfair Display", serif;
   font-size: 22px;
   font-weight: 600;
   color: var(--charcoal);

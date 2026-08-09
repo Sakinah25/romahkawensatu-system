@@ -23,7 +23,7 @@ function _coverUrl($studio): string
 <div class="wrap">
   <div class="eyebrow">Step 1 of 2</div>
   <h1 class="h">Choose your <em>package</em></h1>
-  <p class="lead">Seven themed sets, rented by the hour with a 2-hour minimum. Open daily 10:00–20:00.</p>
+  <p class="lead" style="white-space:nowrap">Explore our collection of seven uniquely themed studio sets, available for hourly rental with a two-hour minimum. Open daily 10:00 AM – 8:00 PM.</p>
 
   <div class="pkg-grid">
     <?php foreach ($studios as $s): ?>
